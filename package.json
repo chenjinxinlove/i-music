@@ -5,8 +5,8 @@
   "author": "chenjinxin <chenjinxinlove@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
+    "dev": "node build/dev-server.js & node NeteaseCloudMusicApi/app.js",
+    "start": "npm run dev",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },

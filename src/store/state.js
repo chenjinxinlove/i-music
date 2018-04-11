@@ -1,4 +1,4 @@
 const state = {
-  count: 10
+  count: 11
 }
 export default state

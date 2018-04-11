@@ -1,0 +1,26 @@
+search  搜索  ok
+songList 歌单  ok
+Sang  歌曲排行
+mv   Mv
+Fm  私人FM
+recommend  每日推荐  ok
+play   播放  
+单曲循环 列表循环 随机播放 ok
+left  向left的箭头 
+点赞  ok
+评论  ok
+写评论  ok
+个人中心  ok
+本地音乐  ok
+最近播放  ok
+我的收藏 ok
+收藏 ok
+Mv播放 ok
+垃圾桶 ok
+播放
+下一曲
+关闭 ok
+搜索历史 ok
+歌手 ok
+签到 ok
+退出 ok

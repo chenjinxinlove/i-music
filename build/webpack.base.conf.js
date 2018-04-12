@@ -41,7 +41,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue': 'mpvue',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'common': resolve('src/common'),
     },
     symlinks: false
   },

@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div class="header">
-      
+      <icons type='list2' size="16" color="#b9b8bc"></icons>
       <switches :switches="switches" @switch="switchItem" :currentIndex="currentIndex"></switches> 
-      <icon type='search' size="12"></icon>
+      <icons type='search' size="16" color="#b9b8bc"></icons>
     </div>
   </div> 
 </template>
 
 <script>
 import Switches from '@/components/switches/switches'
-import Icon from '@/components/icon/icon'
+import Icons from '@/components/icon/icon'
 export default {
   data () {
     return {
@@ -21,7 +21,7 @@ export default {
 
   components: {
     Switches,
-    Icon
+    Icons
   },
 
   methods: {
@@ -36,5 +36,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.header
+  width 100%
+  box-sizing border-box
+  display flex
+  justify-content space-between
+  padding 0 20px
+.icon-list2
+  position relative
+  top 2px
 
 </style>

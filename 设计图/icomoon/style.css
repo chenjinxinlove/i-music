@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?k9w0f2');
-  src:  url('fonts/icomoon.eot?k9w0f2#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?k9w0f2') format('truetype'),
-    url('fonts/icomoon.woff?k9w0f2') format('woff'),
-    url('fonts/icomoon.svg?k9w0f2#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?w3zhe1');
+  src:  url('fonts/icomoon.eot?w3zhe1#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?w3zhe1') format('truetype'),
+    url('fonts/icomoon.woff?w3zhe1') format('woff'),
+    url('fonts/icomoon.svg?w3zhe1#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,79 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-heart .path1:before {
+  content: "\e900";
+  color: rgb(255, 230, 211);
+}
+.icon-heart .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(58, 50, 124);
+}
+.icon-heart .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(255, 201, 153);
+}
+.icon-heart .path4:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 211, 171);
+}
+.icon-heart .path5:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(255, 222, 192);
+}
+.icon-heart .path6:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(255, 230, 211);
+}
+.icon-heart .path7:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(243, 100, 92);
+}
+.icon-piano .path1:before {
+  content: "\e907";
+  color: rgb(41, 35, 97);
+}
+.icon-piano .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(255, 235, 234);
+}
+.icon-piano .path3:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(19, 31, 74);
+}
+.icon-piano .path4:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(19, 31, 74);
+}
+.icon-piano .path5:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(19, 31, 74);
+}
+.icon-piano .path6:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(19, 31, 74);
+}
+.icon-piano .path7:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(41, 35, 97);
+}
+.icon-piano .path8:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(198, 183, 212);
+}
 .icon-headphones:before {
   content: "\e910";
 }
@@ -56,79 +129,6 @@
 }
 .icon-forward3:before {
   content: "\ea20";
-}
-.icon-比心 .path1:before {
-  content: "\e900";
-  color: rgb(255, 230, 211);
-}
-.icon-比心 .path2:before {
-  content: "\e901";
-  margin-left: -1em;
-  color: rgb(58, 50, 124);
-}
-.icon-比心 .path3:before {
-  content: "\e902";
-  margin-left: -1em;
-  color: rgb(255, 201, 153);
-}
-.icon-比心 .path4:before {
-  content: "\e903";
-  margin-left: -1em;
-  color: rgb(255, 211, 171);
-}
-.icon-比心 .path5:before {
-  content: "\e904";
-  margin-left: -1em;
-  color: rgb(255, 222, 192);
-}
-.icon-比心 .path6:before {
-  content: "\e905";
-  margin-left: -1em;
-  color: rgb(255, 230, 211);
-}
-.icon-比心 .path7:before {
-  content: "\e906";
-  margin-left: -1em;
-  color: rgb(243, 100, 92);
-}
-.icon-钢琴 .path1:before {
-  content: "\e907";
-  color: rgb(41, 35, 97);
-}
-.icon-钢琴 .path2:before {
-  content: "\e908";
-  margin-left: -1em;
-  color: rgb(255, 235, 234);
-}
-.icon-钢琴 .path3:before {
-  content: "\e909";
-  margin-left: -1em;
-  color: rgb(19, 31, 74);
-}
-.icon-钢琴 .path4:before {
-  content: "\e90a";
-  margin-left: -1em;
-  color: rgb(19, 31, 74);
-}
-.icon-钢琴 .path5:before {
-  content: "\e90b";
-  margin-left: -1em;
-  color: rgb(19, 31, 74);
-}
-.icon-钢琴 .path6:before {
-  content: "\e90c";
-  margin-left: -1em;
-  color: rgb(19, 31, 74);
-}
-.icon-钢琴 .path7:before {
-  content: "\e90d";
-  margin-left: -1em;
-  color: rgb(41, 35, 97);
-}
-.icon-钢琴 .path8:before {
-  content: "\e90e";
-  margin-left: -1em;
-  color: rgb(198, 183, 212);
 }
 .icon-clone:before {
   content: "\e90f";

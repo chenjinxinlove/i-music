@@ -3,9 +3,10 @@
           :autoplay="autoPlay"
           :interval="interval"
           :indicatorActiveColor="indicatorActiveColor"
+          class="swiper-wraper"
   >
-  <block :key="item.targetId" v-for="item in banners">
-    <swiper-item @click="onClick">
+  <block :key="item.targetId" v-for="item in banners" >
+    <swiper-item @click="onClick" class="slide-image-wrap">
       <image :src="item.pic" class="slide-image" />
     </swiper-item>
   </block>
@@ -43,6 +44,11 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.slide-image
+.swiper-wraper
   height 176px
+.slide-image-wrap
+  height 176px
+  .slide-image
+    height 100%
+    width 100%
 </style>

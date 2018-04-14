@@ -13,6 +13,7 @@ export default {
 
 <style>
 .container {
+  background: #f8f8f8;
   height: 100%;
   display: flex;
   flex-direction: column;

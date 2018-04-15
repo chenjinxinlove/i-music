@@ -1,17 +1,33 @@
 <template>
-<div class="stv-container">
+<div class="scroll-container">
   <div class="scroll-view">
     <div 
         @touchstart.prevent="handlerStart"
         @touchmove.prevent="handlerMove"
         @touchend="handlerEnd"
+        @touchcancel="handlecancel"
         class="scroll-view-wrapper"
         :class="{withAnimate: !initiated}"
         :style="{left: -offset + 'px'}"
-    >
-        <div class="hei" :style="{width: windowWidth + 'px'}">1</div>
-        <div class="hei" :style="{width: windowWidth + 'px'}">2</div>
-        <div class="hei" :style="{width: windowWidth + 'px'}">3</div>
+    >   
+    <view :style="{width: windowWidth + 'px'}"  class="one-scene">
+        <scroll-view style="height:100%" scroll-y>
+          <div :style="{width: windowWidth + 'px'}">
+            <slot name="recommend"></slot>
+          </div>
+        </scroll-view>
+      </view>
+      <view :style="{width: windowWidth + 'px'}"  class="one-scene">
+        <scroll-view style="height:100%" scroll-y>
+          <div class="hei1" :style="{width: windowWidth + 'px'}">111</div>
+        </scroll-view>
+      </view>
+      <view :style="{width: windowWidth + 'px'}"  class="one-scene">
+        <scroll-view style="height:100%" scroll-y>
+          <div class="hei2" :style="{width: windowWidth + 'px'}">3</div>
+        </scroll-view>
+      </view>
+       
     </div>
   </div>
 </div>
@@ -69,15 +85,35 @@ export default {
       offset = this.touch.offsetCatch + deltaX
       if (offset <= 0) {
         offset = 0
-      } else if (offset >= this.windowWidth * (this.tabsCount - 1)) {
+      }
+      if (offset >= this.windowWidth * (this.tabsCount - 1)) {
         offset = this.windowWidth * (this.tabsCount - 1)
       }
       this.offset = offset
     },
+    handlecancel () {
+      console.log('d')
+      let offset = this.offset
+      if (this.offset % this.windowWidth >= (this.windowWidth / 2)) {
+        offset = (this.currentIndex + 1)
+      } else {
+        offset = (this.currentIndex)
+      }
+      if (offset <= 0) {
+        offset = 0
+      }
+      if (offset >= this.windowWidth * (this.tabsCount - 1)) {
+        offset = this.windowWidth * (this.tabsCount - 1)
+      }
+      this.offset = offset
+      this.initiated = false
+    },
     handlerEnd (e) {
+      console.log('ddd')
       const changedTouches = e.changedTouches ? e.changedTouches[0] : e['mp'].changedTouches[0]
       let {clientX, clientY} = changedTouches
       let endTime = e.timeStamp
+      let offset = this.offset
       let {startX, tapStartTime} = this.touch
       // 快速滑动
       let currentIndex = this.currentIndex
@@ -85,7 +121,7 @@ export default {
         // 向左
         if (Math.abs(startX - clientY) < 50) {
           if (startX - clientX > 5) {
-            if (currentIndex < this.tabsCount) {
+            if (currentIndex < this.tabsCount - 1) {
               currentIndex++
             }
           } else {
@@ -94,7 +130,7 @@ export default {
             }
           }
           this.$emit('updateIndex', currentIndex)
-          this.offset = this.windowWidth * currentIndex
+          offset = this.windowWidth * currentIndex
         } else {
           // 快速滑动 但是Y距离大于50 所以用户是左右滚动
           let page = Math.round(this.offset / this.windowWidth)
@@ -102,7 +138,7 @@ export default {
             currentIndex = page
           }
           this.$emit('updateIndex', currentIndex)
-          this.offset = this.windowWidth * page
+          offset = this.windowWidth * page
         }
       } else {
         let page = Math.round(this.offset / this.windowWidth)
@@ -110,8 +146,15 @@ export default {
           currentIndex = page
         }
         this.$emit('updateIndex', currentIndex)
-        this.offset = this.windowWidth * page
+        offset = this.windowWidth * page
       }
+      if (offset <= 0) {
+        offset = 0
+      }
+      if (offset >= this.windowWidth * (this.tabsCount - 1)) {
+        offset = this.windowWidth * (this.tabsCount - 1)
+      }
+      this.offset = offset
       this.initiated = false
     }
   }
@@ -120,14 +163,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.stv-container
-  position: absolute
+.scroll-container
+  position: fixed
   top:33px;
   left:0;
   right:0;
   bottom:0;
 .hei
-  height 300px
+  height 800px
+  background red
+.hei1
+  height 2000px
+  background #000000
+.hei2
+  height 600px
+  background yellow
 .withAnimate 
   transition: all 100ms ease;
   -webkit-transform: translate3d(0, 0, 0)

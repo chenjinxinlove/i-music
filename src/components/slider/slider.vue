@@ -1,16 +1,19 @@
 <template>
-  <swiper :indicator-dots="indicatorDots"
-          :autoplay="autoPlay"
-          :interval="interval"
-          :indicatorActiveColor="indicatorActiveColor"
-          class="swiper-wraper"
-  >
-  <block :key="item.targetId" v-for="item in banners" >
-    <swiper-item @click="onClick" class="slide-image-wrap">
-      <image :src="item.pic" class="slide-image" />
-    </swiper-item>
-  </block>
-</swiper>
+  <div class="dd">
+    <swiper :indicator-dots="indicatorDots"
+            :autoplay="autoPlay"
+            :interval="interval"
+            :indicatorActiveColor="indicatorActiveColor"
+            class="swiper-wraper"
+    >
+    <block :key="item.targetId" v-for="item in banners" >
+      <swiper-item @click="onClick" class="slide-image-wrap">
+        <image :src="item.pic" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  </div>
+  
 </template>
 <script>
 export default {

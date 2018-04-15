@@ -5,9 +5,8 @@
       <switches :switches="switches" @switch="switchItem" :currentIndex="currentIndex"></switches> 
       <icons type='search' size="16" color="#b9b8bc"></icons>
     </div>
-    <swiper-scroll :currentIndex="currentIndex" @updateIndex="updateIndex"></swiper-scroll>
-    <!-- <div >  
-      <div class="content" id="recommend">
+    <swiper-scroll :currentIndex="currentIndex" @updateIndex="updateIndex">
+      <div slot="recommend">
         <sliders
             :indicatorDots="indicatorDots"
             :autoplay="autoplay"
@@ -64,10 +63,7 @@
           </div>
         </div>
       </div>
-      <div class="content" id="share">1</div>
-      <div class="content" id="my">2</div>
-    </div> -->
-
+    </swiper-scroll>
   </div> 
 </template>
 

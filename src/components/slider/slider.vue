@@ -1,5 +1,4 @@
 <template>
-  <div class="dd">
     <swiper :indicator-dots="indicatorDots"
             :autoplay="autoPlay"
             :interval="interval"
@@ -12,8 +11,6 @@
       </swiper-item>
     </block>
   </swiper>
-  </div>
-  
 </template>
 <script>
 export default {

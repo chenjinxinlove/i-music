@@ -1,4 +1,4 @@
 const state = {
-  count: 11
+  'personalizeds': []
 }
 export default state

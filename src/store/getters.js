@@ -1,1 +1,1 @@
-export const count = state => state.count
+export const personalizeds = state => state.personalizeds

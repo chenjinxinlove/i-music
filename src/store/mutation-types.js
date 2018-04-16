@@ -1,1 +1,1 @@
-export const SET_COUNT = 'SET_COUNT'
+export const SET_PERSONALIZEDS = 'SET_PERSONALIZEDS'

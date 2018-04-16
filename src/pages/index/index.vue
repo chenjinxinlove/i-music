@@ -32,8 +32,10 @@
                   <div class="nav">
                     <ul class="ul">
                       <li class="li">
-                        <img class="img-item" src="http://objheplwd.bkt.clouddn.com/music.svg" alt="">
-                        <span>歌单</span>
+                        <a href="../../pages/songList/main">
+                          <img class="img-item" src="http://objheplwd.bkt.clouddn.com/music.svg" alt="">
+                          <span>歌单</span>
+                        </a>
                       </li>
                       <li class="li">
                         <img class="img-item" src="http://objheplwd.bkt.clouddn.com/heart%20.svg" alt="">

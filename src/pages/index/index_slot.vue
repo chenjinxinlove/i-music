@@ -38,7 +38,7 @@
         <div class="music-wraper new-music">
           <div class="title">
             <span>最新音乐</span>
-            <icons type='list2' size="16" color="#b9b8bc"></icons>
+            <icons type='search' size="14" color="#b9b8bc"></icons>
           </div>
           <div class="content">
 
@@ -47,7 +47,7 @@
         <div class="music-wraper">
           <div class="title">
             <span>音乐推荐</span>
-            <icons type='list2' size="16" color="#b9b8bc"></icons>
+            <icons type='search' size="14" color="#b9b8bc"></icons>
           </div>
           <div class="content">
 
@@ -56,7 +56,7 @@
         <div class="music-wraper">
           <div class="title">
             <span>热门歌星</span>
-            <icons type='list2' size="16" color="#b9b8bc"></icons>
+            <icons type='search' size="14" color="#b9b8bc"></icons>
           </div>
           <div class="content">
 

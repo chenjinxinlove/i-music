@@ -1,4 +1,5 @@
 const state = {
-  'personalizeds': []
+  'songListHots': [],
+  'selectValue': '摇滚'
 }
 export default state

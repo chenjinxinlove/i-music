@@ -1,8 +1,16 @@
 import fly from '../common/js/fly'
 
-// 获取首页轮播
+// 获取热门歌单
 export function getPersonalizeds () {
   const url = '/personalized'
+  return fly.get(url).then(res => {
+    return Promise.resolve(res.data)
+  })
+}
+
+// 获取精品歌单
+export function getSongList (cat, limit, offset) {
+  const url = `/top/playlist/highquality?cat=${cat}&limit=${limit}&offset=${offset}`
   return fly.get(url).then(res => {
     return Promise.resolve(res.data)
   })

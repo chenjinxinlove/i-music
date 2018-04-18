@@ -1,21 +1,23 @@
 <template>
   <div class="songList">
     <div class="blur header-wrapper" :style="headerImgBg"></div>
-    <div class="header">
-      <div class="left">
-        <img class="img" :src="songListHot.coverImgUrl" alt="" >
-      </div>
-      <div class="right">
-        <div class="title">
-          <icons type='emotion' size="16" color="#fff"></icons>
-          <p>精品歌单</p>
-          <icons type='right' size="16" color="#fff"></icons>
+    <a :href="'../../pages/songs/main?type=songList&id=' + songListHot.id">
+      <div class="header">
+        <div class="left">
+          <img class="img" :src="songListHot.coverImgUrl" alt="" >
         </div>
-        <p class="name">{{songListHot.name}}</p>
-        <p class="copywriter">{{songListHot.copywriter}}</p>
+        <div class="right">
+          <div class="title">
+            <icons type='emotion' size="16" color="#fff"></icons>
+            <p>精品歌单</p>
+            <icons type='right' size="16" color="#fff"></icons>
+          </div>
+          <p class="name">{{songListHot.name}}</p>
+          <p class="copywriter">{{songListHot.copywriter}}</p>
+        </div>
       </div>
-    </div>
-    <div class="select-wrapper">
+    </a>
+    <div class="select-wrapper" >
       <a href="../selectSongType/main">
         <div class="select">
           <span>{{getSelectValue}}</span>
@@ -28,18 +30,25 @@
         <span class="selectItem" @click="setSelectValue('影视原生')">影视原声</span>
       </div>
     </div>
-    <div class="list-wrapper">
-      <div class="item" v-for="(item, index) in songlist" :key="index">
-        <img :src="item.coverImgUrl" alt="">
-        <div class="play-count">
-          <span>{{item.playCount}}</span>
-        </div>
-        <div class="author">
-          <img :src="item.subscribers[0].avatarUrl" alt="">
-          <span class="nickname">{{item.subscribers[0].nickname}}</span>
-        </div>
+    <div class="list-wrapper" v-if="songlist.length">
+      <div  class="item" v-for="(item, index) in songlist" :key="index">
+        <a :href="'../../pages/songs/main?type=songList&id=' + item.id">
+          <img class="img" :src="item.coverImgUrl" alt="">
+          <div class="play-count">
+            <icons type='headphones' size='14' color="#fff"></icons>
+            <span class="span">{{item.playCount}}</span>
+          </div>
+          <div class="author">
+            <icons type='singer' size="14" color="#fff"></icons>
+            <span class="span nickname">{{item.subscribers[0].nickname}}</span>
+          </div>
+          <div class="name">
+            {{item.name}}
+          </div>
+        </a>
       </div>
     </div>
+    <loading v-else></loading>
   </div>
 </template>
 <script>
@@ -47,6 +56,7 @@ import {getSongList} from '../../api/songList'
 import {HTTP_CODE} from '../../config'
 import {mapMutations, mapGetters} from 'vuex'
 import Icons from '@/components/icon/icon'
+import Loading from '@/components/loading/loading'
 
 export default {
   data () {
@@ -94,7 +104,8 @@ export default {
     })
   },
   components: {
-    Icons
+    Icons,
+    Loading
   }
 }
 </script>
@@ -138,8 +149,8 @@ export default {
         line-height 1.5
   .select-wrapper
     padding 0 15px
-    height 80px
-    line-height 80px
+    height 60px
+    line-height 60px
     display flex
     justify-content space-between
     align-items center
@@ -160,4 +171,35 @@ export default {
         border-right 1px solid $color-aux-five
       .selectItem:last-child
         border none
+  .list-wrapper
+    justify-content space-between
+    display flex
+    flex-wrap wrap
+    .item
+      width 50%
+      padding 0 1px 5px 1px
+      box-sizing border-box
+      position relative
+      color $color-background
+      font-size $font-size-mix
+      .img
+        display inline-block
+        width 100%
+        height 180px
+      .play-count
+        position absolute
+        right 5px
+        top 5px
+        display flex
+        align-items center
+      .author
+        position absolute    
+        left 5px
+        top 160px
+        display flex
+        align-items center
+      .name
+        color $color-text-menu
+      .span
+        margin-left 5px
 </style>

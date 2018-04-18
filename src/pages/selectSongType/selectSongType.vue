@@ -1,14 +1,18 @@
 <template>
   <div class="songType">
-    <div class="header" :class="{select: getSelectValue === '华语'}">
-      全部歌单
+    <div class="header" @click="selectType('全部歌单', 'false')"  :class="{select: getSelectValue === '全部歌单'}">
+      <span>全部歌单</span>
+      <img class="imgSelect" :src="'http://objheplwd.bkt.clouddn.com/countersign.svg'" v-show="getSelectValue === '全部歌单'" alt="">
     </div>
     <div class="types" v-for="(type, index) in types" :key="index">
       <div v-for="(item ,key) in type" :key="key" 
         :class="{type: !key, hot: item.hot, select: getSelectValue === item.name}" 
         @click="selectType(item.name, item.type)" 
         class="item">
-        {{item.name}}
+        <img class="imgIcon" :src="'http://objheplwd.bkt.clouddn.com/' + item.icon" v-if="item.type === 'theme'" alt="">
+        <img class="imgHot" :src="'http://objheplwd.bkt.clouddn.com/hot.svg'" v-if="item.hot" alt="">
+        <img class="imgSelect" :src="'http://objheplwd.bkt.clouddn.com/countersign.svg'" v-if="getSelectValue === item.name" alt="">
+        <p>{{item.name}}</p> 
       </div>
     </div>
   </div> 
@@ -20,7 +24,7 @@ export default {
     return {
       types: [
         [
-          {name: '语种', type: 'theme', hot: false},
+          {name: '语种', type: 'theme', hot: false, icon: 'global.svg'},
           {name: '华语', type: 'item', hot: true},
           {name: '欧美', type: 'item', hot: false},
           {name: '日语', type: 'item', hot: false},
@@ -29,7 +33,7 @@ export default {
           {name: '小语', type: 'item', hot: false}
         ],
         [
-          {name: '风格', type: 'theme', hot: false},
+          {name: '风格', type: 'theme', hot: false, icon: 'style.svg'},
           {name: '流行', type: 'item', hot: true},
           {name: '摇滚', type: 'item', hot: true},
           {name: '民谣', type: 'item', hot: true},
@@ -58,7 +62,7 @@ export default {
           {name: '', type: 'item', hot: false}
         ],
         [
-          {name: '场景', type: 'theme', hot: false},
+          {name: '场景', type: 'theme', hot: false, icon: 'scene.svg'},
           {name: '清晨', type: 'item', hot: false},
           {name: '夜晚', type: 'item', hot: true},
           {name: '学习', type: 'item', hot: true},
@@ -75,7 +79,7 @@ export default {
           {name: '', type: 'item', hot: false}
         ],
         [
-          {name: '情感', type: 'theme', hot: false},
+          {name: '情感', type: 'theme', hot: false, icon: 'emotion.svg'},
           {name: '怀旧', type: 'item', hot: true},
           {name: '清新', type: 'item', hot: true},
           {name: '浪漫', type: 'item', hot: false},
@@ -92,7 +96,7 @@ export default {
           {name: '', type: 'item', hot: false}
         ],
         [
-          {name: '主题', type: 'theme', hot: false},
+          {name: '主题', type: 'theme', hot: false, icon: 'theme.svg'},
           {name: '影视原声', type: 'item', hot: true},
           {name: 'ACG', type: 'item', hot: true},
           {name: '校园', type: 'item', hot: false},
@@ -146,8 +150,15 @@ export default {
     line-height 60px
     text-align center
     background $color-background
-  .select
-      background blue  
+    position relative
+    border 1rpx solid rgba(0, 0, 0, 0)
+  .hot
+    .imgHot
+      height 40px
+      width 17px
+      position absolute
+      top -10px
+      left 5px     
   .types
     background $color-background
     margin 10px 0 0 0
@@ -162,13 +173,32 @@ export default {
       text-align center
       border-right 1rpx $color-aux-five solid
       border-top 1rpx $color-aux-five solid
-      // border-bottom 1rpx $color-aux-five solid
+      position relative
     .type
       float left
       height 100px
       width 25%
-      line-height 100px
+      line-height 2
       text-align center
-    .hot
-      background red
+      display flex
+      justify-content center
+      align-items center
+      flex-direction column
+      .imgIcon
+        width 30px
+        height 30px
+        display block
+    .select
+      border 1px solid $color-text
+  .select
+    border 1rpx solid $color-text
+    .imgSelect
+      height 10px
+      width 20px
+      position absolute
+      bottom 0px
+      right 0px
+      background #000  
+    
+
 </style>

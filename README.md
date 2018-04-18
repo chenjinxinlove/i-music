@@ -18,4 +18,12 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#### mpvue遇到的坑
+
+1、slot里面包括自定义组件，会不显示
+
+2、e的事件直接取不到touches，需要const touch = e.touches ? e.touches[0] : e['mp'].touches[0] 兼容
+
+3、在slot使用中，会出现微信开发工具把solt id 报错的情况，需要重启项目
+
+4、在遇到莫名其妙的问题时，可以尝试重启微信开发工具

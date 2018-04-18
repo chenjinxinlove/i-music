@@ -15,3 +15,12 @@ export function getSongList (cat, limit, offset) {
     return Promise.resolve(res.data)
   })
 }
+
+// 获取歌单详情
+
+export function getSongPlay (id) {
+  const url = '/playlist/detail?id=' + id
+  return fly.get(url).then(res => {
+    return Promise.resolve(res.data)
+  })
+}

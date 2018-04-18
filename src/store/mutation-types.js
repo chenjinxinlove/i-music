@@ -1,3 +1,5 @@
 export const SET_SELECT_VALUE = 'SET_SELECT_VALUE'
 
 export const SET_SONG_LIST_HOTS = 'SET_SONG_LIST_HOTS'
+
+export const SET_SONG_PLAY = 'SET_SONG_PLAY'

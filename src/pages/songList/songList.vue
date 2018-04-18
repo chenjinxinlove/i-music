@@ -8,9 +8,7 @@
         </div>
         <div class="right">
           <div class="title">
-            <icons type='emotion' size="16" color="#fff"></icons>
             <p>精品歌单</p>
-            <icons type='right' size="16" color="#fff"></icons>
           </div>
           <p class="name">{{songListHot.name}}</p>
           <p class="copywriter">{{songListHot.copywriter}}</p>

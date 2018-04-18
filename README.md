@@ -27,3 +27,10 @@ npm run build --report
 3、在slot使用中，会出现微信开发工具把solt id 报错的情况，需要重启项目
 
 4、在遇到莫名其妙的问题时，可以尝试重启微信开发工具
+
+
+#### 推荐库
+
+1、在 mpvue 中使用 vue-router 兼容的路由写法 mpvue-router-patch 
+
+2、兼容小程序的  fly

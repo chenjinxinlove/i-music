@@ -33,7 +33,7 @@
         <p class="album">mr-宇宙爆炸专辑</p>
       </div>
       <progress-circle :radius="radius" :percent="percent">
-            <i @click.stop="togglePlaying" class="icon-mini" :class="miniIcon"></i>
+          <icons type='pause2' size="30" color="#2ddae8"></icons>
       </progress-circle>
     </div>
 
@@ -115,4 +115,21 @@ export default {
         display flex
         justify-content center
         align-items center
+  .mini-player
+    height 50px
+    display flex
+    padding 0 20px
+    .img
+      width 50px
+      height 50px
+      border-radius 50% 
+      margin-right 20px
+    .middle   
+      .name
+        line-height 2
+        font-size $font-size-text
+        color $color-text
+      .album
+        font-size $font-size-mix
+        color $color-text-menu
 </style>

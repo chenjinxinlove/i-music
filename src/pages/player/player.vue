@@ -124,7 +124,7 @@ export default {
       height 50px
       border-radius 50% 
       margin-right 20px
-    .middle   
+    .middle
       .name
         line-height 2
         font-size $font-size-text

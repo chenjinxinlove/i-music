@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './songs'
+import App from './select-song-type'
 import MpvueRouterPatch from 'mpvue-router-patch'
 
 Vue.use(MpvueRouterPatch)

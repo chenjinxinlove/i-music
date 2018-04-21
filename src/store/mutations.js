@@ -7,6 +7,9 @@ const matutaions = {
   [types.SET_SELECT_VALUE] (state, selectValue) {
     state.selectValue = selectValue
   },
+  [types.SET_RECOMMEND_DISC] (state, recommendDisc) {
+    state.recommendDisc = recommendDisc
+  },
   [types.SET_SONG_PLAY] (state, songplay) {
     state.songplay = songplay
   },

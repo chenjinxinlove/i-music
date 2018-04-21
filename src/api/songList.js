@@ -21,6 +21,7 @@ export function getSongList (cat, limit, offset) {
 export function getSongPlay (id) {
   const url = '/playlist/detail?id=' + id
   return fly.get(url).then(res => {
+    // 处理一下歌单，提取需要的字段，然后返回
     return Promise.resolve(res.data)
   })
 }

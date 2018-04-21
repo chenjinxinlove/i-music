@@ -1,7 +1,7 @@
 <template>
   <div class="songList">
     <div class="blur header-wrapper" :style="headerImgBg"></div>
-    <a :href="'../../pages/songs/main?type=songList&id=' + songListHot.id">
+    <div @click="selectItem(songListHot)">
       <div class="header">
         <div class="left">
           <img class="img" :src="songListHot.coverImgUrl" alt="" >
@@ -14,9 +14,9 @@
           <p class="copywriter">{{songListHot.copywriter}}</p>
         </div>
       </div>
-    </a>
+    </div>
     <div class="select-wrapper" >
-      <a href="../selectSongType/main">
+      <a href="../select-song-type/main">
         <div class="select">
           <span>{{getSelectValue}}</span>
           <icons type='right' size="16" color="#b9b8bc"></icons>
@@ -30,7 +30,7 @@
     </div>
     <div class="list-wrapper" v-if="songlist.length">
       <div  class="item" v-for="(item, index) in songlist" :key="index">
-        <a :href="'../../pages/songs/main?type=songList&id=' + item.id">
+        <div @click="selectItem(item)">
           <img class="img" :src="item.coverImgUrl" alt="">
           <div class="play-count">
             <icons type='headphones' size='14' color="#fff"></icons>
@@ -43,7 +43,7 @@
           <div class="name">
             {{item.name}}
           </div>
-        </a>
+        </div>
       </div>
     </div>
     <loading v-else></loading>
@@ -81,6 +81,12 @@ export default {
     this._getSongList(false, '摇滚')
   },
   methods: {
+    selectItem (item) {
+      this.$router.push({
+        path: `/pages/songs-details/main?id=${item.id}`
+      })
+      this.setRecommendDisc(item)
+    },
     async _getSongList (type, cat) {
       const data = await getSongList(cat, this.limit, this.offset)
       const {code, playlists} = data
@@ -98,7 +104,8 @@ export default {
     },
     ...mapMutations({
       'setSongListHots': 'SET_SONG_LIST_HOTS',
-      'setSelectValue': 'SET_SELECT_VALUE'
+      'setSelectValue': 'SET_SELECT_VALUE',
+      'setRecommendDisc': 'SET_RECOMMEND_DISC'
     })
   },
   components: {

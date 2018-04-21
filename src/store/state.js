@@ -2,6 +2,8 @@ import {playMode} from '../config/index'
 const state = {
   'songListHots': [],
   'selectValue': '摇滚',
+  // 推荐详情
+  'recommendDisc': {},
   'songPlay': [],
   // 是否播放
   playing: false,

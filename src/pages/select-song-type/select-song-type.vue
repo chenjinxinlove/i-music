@@ -134,7 +134,7 @@ export default {
       }
       this.setSelectValue(name)
       // 微信小程序api
-      wx.navigateBack()
+      this.$router.back()
     },
     ...mapMutations({
       'setSelectValue': 'SET_SELECT_VALUE'

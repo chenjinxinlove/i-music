@@ -14,10 +14,10 @@ export default {
     pages: [
       'pages/logs/main',
       'pages/index/main',
-      'pages/songList/main',
-      'pages/selectSongType/main',
-      'pages/songs/main',
-      '^pages/player/main'
+      'pages/recommend-list/main',
+      'pages/select-song-type/main',
+      '^pages/songs-details/main',
+      'pages/player/main'
     ],
     window: {
       backgroundTextStyle: 'light',

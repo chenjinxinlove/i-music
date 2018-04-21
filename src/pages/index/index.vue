@@ -32,7 +32,7 @@
                   <div class="nav">
                     <ul class="ul">
                       <li class="li">
-                        <a href="../../pages/songList/main">
+                        <a href="../../pages/recommend-list/main">
                           <img class="img-item" src="http://objheplwd.bkt.clouddn.com/music.svg" alt="">
                           <span>歌单</span>
                         </a>

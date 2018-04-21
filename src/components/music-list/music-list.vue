@@ -1,7 +1,7 @@
 <template>
   <div class="songplay-wrapper" >
-    <div class="songplay" v-if="playResult.coverImgUrl">
-      <img class="songImg" :src="playResult.coverImgUrl" alt="">
+    <div class="songplay" v-if="bgImage">
+      <img class="songImg" :src="bgImage" alt="">
       <div class="palyAll">
         <icons type='play3' size="24" color="#2ddae8"></icons>
       </div>
@@ -10,15 +10,15 @@
           <div class="cd"></div>
         </div>
         <div class="name-wrapper">
-          <p class="name">{{playResult.name}}</p>
-          <p class="nickname">by:{{playResult.creator.nickname}}</p>
+          <p class="name">{{title}}</p>
+          <p class="nickname">by:{{creatorname}}</p>
         </div>
       </div>
       <div class="list">
-        <div class="item" v-for="(item, index) in playResult.tracks" :key="index">
+        <div class="item" v-for="(item, index) in songs" :key="item.id" @click="selectItem(item, index)">
           <span class="num">{{index + 1}}</span>
           <span class="name">{{item.name}}</span>
-          <span class="artists">{{item.artists[0].name}}-{{item.album.name}}</span>
+          <span class="artists">{{item.album}}</span>
         </div>
       </div>
     </div>
@@ -26,41 +26,61 @@
   </div>
 </template>
 <script>
-import { getSongPlay } from '../../api/songList'
-import {HTTP_CODE} from '../../config'
 import Icons from '@/components/icon/icon'
-import { mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Loading from '@/components/loading/loading'
 export default {
-  data () {
-    return {
-      id: '',
-      type: '',
-      playResult: {}
+  props: {
+    bgImage: {
+      type: String,
+      default: ''
+    },
+    songs: {
+      type: Array,
+      default: () => []
+    },
+    creatorname: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    rank: {
+      type: Boolean,
+      default: false
     }
   },
-  beforeMount () {
-    const {type, id} = this.$route.query
-    this.type = type
-    this.id = id
-    this._getSongPlay(id)
+  computed: {
+    ...mapGetters([
+      'playing'
+    ])
   },
   components: {
     Icons,
     Loading
   },
   methods: {
-    async _getSongPlay (id) {
-      const data = await getSongPlay(id)
-      const {code, result} = data
-      if (code === HTTP_CODE) {
-        this.playResult = result
-        this.setSongPlay(result.tracks)
+    selectItem (item, index) {
+      const playing = this.playing
+      this.selectPlay({
+        list: this.songs,
+        index
+      })
+      if (!playing) {
+        this.$router.push('../../pages/player/main')
       }
     },
-    ...mapMutations({
-      'setSongPlay': 'SET_SONG_PLAY'
-    })
+    random () {
+      this.randomPlay({
+        list: this.songs
+      })
+    },
+    ...mapActions([
+      'selectPlay',
+      'randomPlay'
+    ])
   }
 }
 </script>

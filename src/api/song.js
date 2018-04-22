@@ -1,10 +1,11 @@
 import fly from '../common/js/fly'
 
 // 获取歌曲url
-export function getSongUrl (id) {
+export function getSongUrls (ids) {
+  const id = !Array.isArray(ids) ? ids : ids.join(',')
   const url = 'music/url?id=' + id
   return fly.get(url).then(res => {
-    return Promise.resolve(res)
+    return Promise.resolve(res.data)
   })
 }
 
@@ -13,6 +14,6 @@ export function getSongUrl (id) {
 export function getLyric (id) {
   const url = 'lyric?id=' + id
   return fly.get(url).then(res => {
-    return Promise.resolve(res)
+    return Promise.resolve(res.data)
   })
 }

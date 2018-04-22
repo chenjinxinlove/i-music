@@ -2,8 +2,8 @@
   <div class="songplay-wrapper" >
     <div class="songplay" v-if="bgImage">
       <img class="songImg" :src="bgImage" alt="">
-      <div class="palyAll">
-        <icons type='play3' size="24" color="#2ddae8"></icons>
+      <div class="palyAll" @click="selectItem(songs[0], 0)">
+        <icons type='play3' size="24" color="#2ddae8" ></icons>
       </div>
       <div class="info-wrapper">
         <div class="cd-wrapper">

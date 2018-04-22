@@ -6,6 +6,7 @@
 <script>
 import musicList from '@/components/music-list/music-list'
 import { getSongPlay } from '../../api/songList'
+import { getSongUrls } from '../../api/song'
 import {HTTP_CODE} from '../../config'
 import {createSong} from '@/common/js/song'
 import { mapGetters } from 'vuex'
@@ -45,14 +46,17 @@ export default {
       const data = await getSongPlay(id)
       const {code, result} = data
       if (code === HTTP_CODE) {
-        this._normalizeSongs(result.tracks)
+        const tracks = result.tracks
+        const tracksIds = tracks.map(item => item.id)
+        const urls = await getSongUrls(tracksIds)
+        this._normalizeSongs(tracks, urls.data)
       }
     },
-    _normalizeSongs (list) {
+    _normalizeSongs (list, urls) {
       let ret = []
-      list.forEach((musicData) => {
+      list.forEach((musicData, index) => {
         if (musicData.id) {
-          ret.push(createSong(musicData))
+          ret.push(createSong(musicData, urls[index].url))
         }
       })
       this.songs = ret

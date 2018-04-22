@@ -1,8 +1,11 @@
 <template>
-  <div class="progress-bar" ref="progressBar" @click="progressClick">
+  <div class="progress-bar" id="progressBar" 
+     @click="progressClick">
     <div class="bar-inner">
-      <div class="progress" ref="progress"></div>
-      <div class="progress-btn-wrapper" ref="progressBtn"
+      <div class="progress" id="progress"
+      :style="{width: offsetWidth + 'px' }"
+      ></div>
+      <div class="progress-btn-wrapper" :style="{transform: 'translate3d( '+ offsetWidth + 'px,0,0)'}" ref="progressBtn"
            @touchstart.prevent="progressTouchStart"
            @touchmove.prevent="progressTouchMove"
            @touchend="progressTouchEnd"
@@ -18,6 +21,12 @@
 const progressBtnWidth = 16
 
 export default {
+  data () {
+    return {
+      offsetWidth: '',
+      widthPro: ''
+    }
+  },
   props: {
     percent: {
       type: Number,
@@ -29,16 +38,18 @@ export default {
   },
   methods: {
     progressTouchStart (e) {
+      const touch = e.touches ? e.touches[0] : e['mp'].touches[0]
       this.touch.initiated = true
-      this.touch.startX = e.touches[0].pageX
-      this.touch.left = this.$refs.progress.clientWidth
+      this.touch.startX = touch.pageX
+      this.touch.left = this.offsetWidth
     },
     progressTouchMove (e) {
+      const touch = e.touches ? e.touches[0] : e['mp'].touches[0]
       if (!this.touch.initiated) {
         return
       }
-      const deltaX = e.touches[0].pageX - this.touch.startX
-      const offsetWidth = Math.min(this.$refs.progressBar.clientWidth - progressBtnWidth, Math.max(0, this.touch.left + deltaX))
+      const deltaX = touch.pageX - this.touch.startX
+      const offsetWidth = Math.min(this.widthPro - progressBtnWidth, Math.max(0, this.touch.left + deltaX))
       this._offset(offsetWidth)
     },
     progressTouchEnd () {
@@ -46,29 +57,35 @@ export default {
       this._triggerPercent()
     },
     progressClick (e) {
-      // const rect = this.$refs.progressBar.getBoundingClientRect()
-      // const offsetWidth = e.pageX - rect.left
-      // this._offset(offsetWidth)
-      // 这里当我们点击 progressBtn 的时候，e.offsetX 获取不对
-      // this._offset(e.offsetX)
-      // this._triggerPercent()
+      var query = wx.createSelectorQuery()
+      var self = this
+      query.select('#progressBar').boundingClientRect(function (rect) {
+        const offsetWidth = e.pageX - rect.left
+        self._offset(offsetWidth)
+        self._triggerPercent()
+      }).exec()
     },
     _triggerPercent () {
-      // const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-      // const percent = this.$refs.progress.clientWidth / barWidth
-      // this.$emit('percentChange', percent)
+      const barWidth = this.widthPro - progressBtnWidth
+      console.log(this.offsetWidth, 'offsetWidth')
+      const percent = this.offsetWidth / barWidth
+      this.$emit('percentChange', percent)
     },
     _offset (offsetWidth) {
-      // this.$refs.progress.style.width = `${offsetWidth}px`
-      // this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+      this.offsetWidth = offsetWidth
     }
   },
   watch: {
     percent (newPercent) {
+      const self = this
       if (newPercent >= 0 && !this.touch.initiated) {
-        const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        const offsetWidth = newPercent * barWidth
-        this._offset(offsetWidth)
+        var query = wx.createSelectorQuery()
+        query.select('#progressBar').boundingClientRect(function (rect) {
+          const barWidth = rect.width - progressBtnWidth
+          const offsetWidth = newPercent * barWidth
+          self.widthPro = rect.width
+          self._offset(offsetWidth)
+        }).exec()
       }
     }
   }

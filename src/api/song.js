@@ -17,3 +17,12 @@ export function getLyric (id) {
     return Promise.resolve(res.data)
   })
 }
+
+// 获取每天推荐歌曲
+
+export function getDayRecommen () {
+  const url = '/personalized/newsong'
+  return fly.get(url).then(res => {
+    return Promise.resolve(res.data)
+  })
+}

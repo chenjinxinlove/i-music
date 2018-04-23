@@ -17,7 +17,9 @@ export default {
       'pages/recommend-list/main',
       'pages/select-song-type/main',
       'pages/songs-details/main',
-      'pages/player/main'
+      'pages/player/main',
+      'pages/day/main',
+      'pages/rank-list/main'
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -37,13 +37,17 @@
                           <span>歌单</span>
                         </a>
                       </li>
-                      <li class="li">
-                        <img class="img-item" src="http://objheplwd.bkt.clouddn.com/heart%20.svg" alt="">
-                        <span>每日推荐</span>
+                      <li >
+                        <a class="li" href="../../pages/day/main">
+                          <img class="img-item" src="http://objheplwd.bkt.clouddn.com/heart%20.svg" alt="">
+                          <span>每日推荐</span>
+                        </a>
                       </li>
-                      <li class="li">
-                        <img class="img-item" src="http://objheplwd.bkt.clouddn.com/task.svg" alt="">
-                        <span>排行榜</span>
+                      <li>
+                        <a class="li" href="../../pages/rank-list/main">
+                          <img class="img-item" src="http://objheplwd.bkt.clouddn.com/task.svg" alt="">
+                          <span>排行榜</span>
+                        </a>
                       </li>
                       <li class="li">
                         <img class="img-item" src="http://objheplwd.bkt.clouddn.com/piano.svg" alt="">

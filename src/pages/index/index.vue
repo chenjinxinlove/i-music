@@ -49,9 +49,11 @@
                           <span>排行榜</span>
                         </a>
                       </li>
-                      <li class="li">
-                        <img class="img-item" src="http://objheplwd.bkt.clouddn.com/piano.svg" alt="">
-                        <span>MV</span>
+                      <li>
+                        <a class="li" href="../../pages/mv/main">
+                          <img class="img-item" src="http://objheplwd.bkt.clouddn.com/piano.svg" alt="">
+                          <span>MV</span>
+                        </a>
                       </li>
                     </ul>
                   </div>

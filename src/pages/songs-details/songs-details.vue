@@ -37,7 +37,7 @@ export default {
   beforeMount () {
     const {id} = this.$route.query
     if (!id) {
-      this.$router.push('/pages/recommend-list/main')
+      this.$router.back()
     }
     this._getSongPlay(id)
   },

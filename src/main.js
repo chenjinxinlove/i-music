@@ -19,7 +19,9 @@ export default {
       'pages/songs-details/main',
       'pages/player/main',
       'pages/day/main',
-      'pages/rank-list/main'
+      'pages/rank-list/main',
+      'pages/mv/main',
+      'pages/mv-plyer/main'
     ],
     window: {
       backgroundTextStyle: 'light',

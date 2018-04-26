@@ -29,6 +29,7 @@ npm run build --report
 4、在遇到莫名其妙的问题时，可以尝试重启微信开发工具
 
 5、在使用css3 时post会加前缀  导致在微信端报错
+
 #### 推荐库
 
 1、在 mpvue 中使用 vue-router 兼容的路由写法 mpvue-router-patch 

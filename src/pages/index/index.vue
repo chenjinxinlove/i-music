@@ -63,7 +63,10 @@
                       <icons type='right' size="14" color="#b9b8bc"></icons>
                     </div>
                     <div class="content">
-
+                      <div class="new-music" v-for="newMusics in item" :key="item.id">
+                        <img :src="item.picUrl" alt="" class="img">
+                        <p class="name">{{item.name}}</p>
+                      </div>
                     </div>
                   </div>
                   <div class="music-wraper">
@@ -72,7 +75,7 @@
                       <icons type='right' size="14" color="#b9b8bc"></icons>
                     </div>
                     <div class="content">
-
+                      
                     </div>
                   </div>
                   <div class="music-wraper">
@@ -111,7 +114,7 @@
 </template>
 
 <script>
-import {getBanner} from '../../api/banner'
+import {getBanner, getNewMusics} from '../../api/index'
 import {HTTP_CODE} from '../../config'
 
 import Switches from '@/components/switches/switches'
@@ -132,7 +135,8 @@ export default {
       offset: 0,
       initiated: false,
       windowWidth: '',
-      tabsCount: 3
+      tabsCount: 3,
+      newMusics: []
     }
   },
 
@@ -262,6 +266,14 @@ export default {
         this.banners = banners
       }
     },
+    async _getNewMusics () {
+      const data = await getNewMusics()
+      const {code, albums} = data
+
+      if (code === HTTP_CODE) {
+        this.newMusics = albums
+      }
+    },
     _scrollCurrentIndex () {
       this.touch.initiated = true
       this.offset = this.currentIndex * this.windowWidth
@@ -270,6 +282,7 @@ export default {
 
   created () {
     this._getBanbar()
+    this._getNewMusics()
     this.touch = {}
     try {
       var res = wx.getSystemInfoSync()

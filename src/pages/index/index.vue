@@ -63,7 +63,7 @@
                       <icons type='right' size="14" color="#b9b8bc"></icons>
                     </div>
                     <div class="content">
-                      <div class="new-music" v-for="newMusics in item" :key="item.id">
+                      <div class="new-music-item" v-for="item in newMusics" :key="item.id">
                         <img :src="item.picUrl" alt="" class="img">
                         <p class="name">{{item.name}}</p>
                       </div>
@@ -338,6 +338,17 @@ export default {
       align-items center 
   .new-music
     margin-top 15px
+    .content
+      display flex
+      justify-content space-between
+      padding-top 20px
+      background #fff
+      .img
+        width 100px
+        height 100px
+      .name
+        font-size 14px
+        text-align center  
 .scroll-container
   position: fixed
   top:33px;

@@ -21,7 +21,8 @@ export default {
       'pages/day/main',
       'pages/rank-list/main',
       'pages/mv/main',
-      'pages/mv-plyer/main'
+      'pages/mv-plyer/main',
+      'pages/new/main'
     ],
     window: {
       backgroundTextStyle: 'light',

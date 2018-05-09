@@ -71,15 +71,6 @@
                   </div>
                   <div class="music-wraper">
                     <div class="title">
-                      <span>音乐推荐</span>
-                      <icons type='right' size="14" color="#b9b8bc"></icons>
-                    </div>
-                    <div class="content">
-                      
-                    </div>
-                  </div>
-                  <div class="music-wraper">
-                    <div class="title">
                       <span>热门歌星</span>
                       <icons type='right' size="14" color="#b9b8bc"></icons>
                     </div>
@@ -348,7 +339,10 @@ export default {
         height 100px
       .name
         font-size 14px
-        text-align center  
+        text-align center
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
 .scroll-container
   position: fixed
   top:33px;

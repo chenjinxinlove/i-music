@@ -58,13 +58,15 @@
                     </ul>
                   </div>
                   <div class="music-wraper new-music">
-                    <div class="title">
+                    <a class="title" href="../../pages/new/main">
                       <span>最新音乐</span>
                       <icons type='right' size="14" color="#b9b8bc"></icons>
-                    </div>
-                    <div class="content">
-                      <div class="new-music-item" v-for="item in newMusics" :key="item.id">
-                        <img :src="item.picUrl" alt="" class="img">
+                    </a>
+                    <div class="content new-wrapper" >
+                      <div v-for="item in newMusics" :key="item.id">
+                        <div class="new-music-item">
+                          <img :src="item.picUrl" alt="" class="img"> 
+                        </div>
                         <p class="name">{{item.name}}</p>
                       </div>
                     </div>
@@ -327,22 +329,32 @@ export default {
       display flex
       justify-content space-between
       align-items center 
-  .new-music
-    margin-top 15px
-    .content
+  .new-wrapper
+    overflow hidden
+    display flex
+    flex-wrap wrap
+    background #fff
+    .new-music-item
+      width 160px
+      height 140px
+      box-sizing border-box
+      margin 7px 0 7px 7px
+      line-height 1.2
+      background url('http://zky.koocdn.com/club/picture/e24204f81a484204afcb9cd2a5fd33a9.png') center no-repeat
+      background-size cover
       display flex
-      justify-content space-between
-      padding-top 20px
-      background #fff
+      justify-content flex-start
+      align-items center
       .img
-        width 100px
-        height 100px
-      .name
-        font-size 14px
-        text-align center
-        overflow hidden
-        text-overflow ellipsis
-        white-space nowrap
+        width 86%
+        height 96%
+    .name
+      width 160px
+      font-size 13px
+      text-align center
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
 .scroll-container
   position: fixed
   top:33px;

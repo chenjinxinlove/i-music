@@ -77,7 +77,14 @@
                       <icons type='right' size="14" color="#b9b8bc"></icons>
                     </div>
                     <div class="content">
-
+                      <div v-for="item in hotSingers" :key="item.id">
+                        <div class="left">
+                          <img :src="item.picUrl" alt="">
+                        </div>
+                        <div class="right">
+                         p <div class="name">{{item.name}}</div>
+                        </div>
+                      </div>    
                     </div>
                   </div>
                 </div>
@@ -108,6 +115,7 @@
 
 <script>
 import {getBanner, getNewMusics} from '../../api/index'
+import {getHotSinger} from '../../api/singer'
 import {HTTP_CODE} from '../../config'
 
 import Switches from '@/components/switches/switches'
@@ -129,7 +137,8 @@ export default {
       initiated: false,
       windowWidth: '',
       tabsCount: 3,
-      newMusics: []
+      newMusics: [],
+      hotSingers: []
     }
   },
 
@@ -267,6 +276,14 @@ export default {
         this.newMusics = albums
       }
     },
+    async _getHotSinger () {
+      const data = await getHotSinger()
+      const {code, artists} = data
+
+      if (code === HTTP_CODE) {
+        this.hotSingers = artists
+      }
+    },
     _scrollCurrentIndex () {
       this.touch.initiated = true
       this.offset = this.currentIndex * this.windowWidth
@@ -276,6 +293,7 @@ export default {
   created () {
     this._getBanbar()
     this._getNewMusics()
+    this._getHotSinger()
     this.touch = {}
     try {
       var res = wx.getSystemInfoSync()

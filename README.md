@@ -1,6 +1,6 @@
 # i-music
 
-> 一个mpvue开发的i-music小程序
+> 一个mpvue开发的i-music小程序,证明mpvue完全有能力开发一个中大型的小程序
 
 ## Build Setup
 
@@ -35,3 +35,21 @@ npm run build --report
 1、在 mpvue 中使用 vue-router 兼容的路由写法 mpvue-router-patch 
 
 2、兼容小程序的  fly
+
+#### 
+
+使用 mpvue 开发小程序，你将在小程序技术体系的基础上获取到这样一些能力：
+
+彻底的组件化开发能力：提高代码复用性
+
+完整的 Vue.js 开发体验
+
+方便的 Vuex 数据管理方案：方便构建复杂应用
+
+快捷的 webpack 构建机制：自定义构建策略、开发阶段 hotReload
+
+支持使用 npm 外部依赖
+
+使用 Vue.js 命令行工具 vue-cli 快速初始化项目
+
+H5 代码转换编译成小程序目标代码的能力

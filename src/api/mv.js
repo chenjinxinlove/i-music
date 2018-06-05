@@ -25,3 +25,12 @@ export function getMvInfo (id) {
     return Promise.resolve(res.data)
   })
 }
+
+// 获取mv的评论
+
+export function getCommentMv (id) {
+  const url = `comment/mv?id=${id}`
+  return fly.get(url).then(res => {
+    return Promise.resolve(res.data)
+  })
+}
